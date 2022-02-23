@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">O2OApp</string>
+    <string name="title_home">Cervezas</string>
+    <string name="text_beer_name">Skol</string>
+    <string name="text_beer_search">buscar una cerveza</string>
+    <string name="text_beer_tagline">A cerveja que desce redondo.</string>
+    <string name="text_abv">7.5</string>
+    <string name="text_ibu">75</string>
+    <string name="image_beer_content_description">The photo of the beer.</string>
+    <string name="image_beer_description_splash">Image of a beer in the cup.</string>
+    <string name="image_beer_home_description">A man preparing a drink of beer</string>
+    <string name="beer_description_detail">Skol é uma marca de cerveja de propriedade da empresa dinamarquesa Carlsberg, com licença para ser fabricada no Brasil. Seu nome vem da palavra sueca skål, que significa tigela; expressão comum que antecede brindes.</string>
+    <string name="description_arrow">The back arrow</string>
+    <string name="description_header_detail">A couple drinking beer</string>
+    <string name="ibu_label">ibu</string>
+    <string name="abv_label">abv</string>
+</resources>

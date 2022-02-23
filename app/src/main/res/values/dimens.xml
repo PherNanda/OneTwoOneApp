@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Text Dimensions -->
+    <dimen name="font_primary_title">24sp</dimen>
+    <dimen name="font_secondary_title">18sp</dimen>
+    <dimen name="font_tertiary_title">16sp</dimen>
+    <dimen name="font_fourteen_title">14sp</dimen>
+
+    <!--Sizes-->
+    <dimen name="large_size">30dp</dimen>
+    <dimen name="medium_large_size">25dp</dimen>
+    <dimen name="medium_size">20dp</dimen>
+    <dimen name="short_size">16dp</dimen>
+    <dimen name="little_size">8dp</dimen>
+    <dimen name="tiny_size">4dp</dimen>
+
+    <!--Image Beer-->
+    <dimen name="beer_image_width">25dp</dimen>
+    <dimen name="beer_image_height">100dp</dimen>
+</resources>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/image_header_detail"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:contentDescription="@string/description_header_detail"
+            android:scaleType="centerCrop"
+            android:src="@drawable/detail"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/short_size"
+            android:background="@drawable/card_format"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image_header_detail"
+            tools:context=".ui.view.DetailActivity">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/beer_image"
+                android:layout_width="100dp"
+                android:layout_height="400dp"
+                android:layout_marginStart="@dimen/short_size"
+                android:layout_marginTop="@dimen/short_size"
+                android:layout_marginBottom="@dimen/short_size"
+                android:contentDescription="@string/image_beer_content_description"
+                android:scaleType="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:placeholderImage="@drawable/splash_small" />
+
+            <TextView
+                android:id="@+id/title_beer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/short_size"
+                android:layout_marginTop="@dimen/short_size"
+                android:fontFamily="@font/bubblegum_sans"
+                android:gravity="start"
+                android:paddingBottom="@dimen/little_size"
+                android:text="@string/text_beer_name"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_secondary_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/beer_image"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/beer_tagline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/short_size"
+                android:fontFamily="@font/bubblegum_sans"
+                android:gravity="start"
+                android:paddingBottom="@dimen/little_size"
+                android:text="@string/text_beer_tagline"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_tertiary_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/beer_image"
+                app:layout_constraintTop_toBottomOf="@id/title_beer" />
+
+            <TextView
+                android:id="@+id/beer_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/short_size"
+                android:text="@string/beer_description_detail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/beer_image"
+                app:layout_constraintTop_toBottomOf="@id/beer_tagline" />
+
+            <FrameLayout
+                android:id="@+id/frame_beer_abv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/short_size"
+                android:layout_marginTop="@dimen/little_size"
+                android:background="@drawable/violet_ball"
+                app:layout_constraintStart_toEndOf="@+id/beer_image"
+                app:layout_constraintTop_toBottomOf="@id/beer_description">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tiny_size"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:text="@string/abv_label"/>
+
+                <TextView
+                    android:id="@+id/beer_abv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/little_size"
+                    android:fontFamily="@font/bubblegum_sans"
+                    android:text="@string/text_abv"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_secondary_title" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/short_size"
+                android:layout_marginTop="@dimen/little_size"
+                android:background="@drawable/teal_ball"
+                app:layout_constraintStart_toEndOf="@+id/frame_beer_abv"
+                app:layout_constraintTop_toBottomOf="@id/beer_description">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/tiny_size"
+                    android:layout_gravity="center_horizontal"
+                    android:textStyle="bold"
+                    android:text="@string/ibu_label"/>
+
+                <TextView
+                    android:id="@+id/beer_ibu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/little_size"
+                    android:fontFamily="@font/bubblegum_sans"
+                    android:text="@string/text_ibu"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_secondary_title" />
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/short_size"
+            android:layout_marginTop="@dimen/short_size"
+            android:contentDescription="@string/description_arrow"
+            android:src="@drawable/ic_baseline_arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
