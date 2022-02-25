@@ -46,16 +46,4 @@
         tools:itemCount="10"
         tools:listitem="@layout/item_home" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/loading_beer"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black_transparent"
-        android:foregroundGravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_rawRes="@raw/beer" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.doAfterTextChanged
@@ -16,7 +15,6 @@ import com.android.app.onetwoone.ui.adapters.BeerAdapter
 import com.android.app.onetwoone.ui.utils.Data
 import com.android.app.onetwoone.ui.utils.Status
 import com.android.app.onetwoone.ui.viewmodel.BeerViewModel
-import com.airbnb.lottie.LottieAnimationView
 import com.android.app.onetwoone.databinding.ActivityMainBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,7 +24,6 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel by viewModel<BeerViewModel>()
     private lateinit var recyclerView: RecyclerView
-    private lateinit var beerAnimationLoader: LottieAnimationView
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +33,6 @@ class MainActivity : AppCompatActivity() {
 
         //recycler beer list
         recyclerView = findViewById(R.id.recycler_beer)
-        beerAnimationLoader = findViewById(R.id.loading_beer)
 
         viewModel.mainStateList.observe(::getLifecycle, ::updateUI)
         viewModel.mainStateDetail.observe(::getLifecycle, ::updateDetailUI)
@@ -55,9 +51,14 @@ class MainActivity : AppCompatActivity() {
 
                 if(value.isNotEmpty()) {
                     viewModel.onSearchBeer(value.toLowerCase(),1,3)
-
                 }
             }
+            if (input != null) {
+                if (input.isEmpty()){
+                    callStartService()
+                }
+            }
+
         }
 
     }
@@ -65,16 +66,14 @@ class MainActivity : AppCompatActivity() {
     private fun updateUI(beersData: Data<List<Beer>>) {
         when (beersData.responseType) {
             Status.ERROR -> {
-                hideLoading()
                 beersData.error?.message?.let { showMessage(it) }
                 beersData.data?.let { setBeerList(it) }
             }
             Status.LOADING -> {
-                showLoading()
+
             }
             Status.SUCCESSFUL -> {
                 beersData.data?.let { setBeerList(it) }
-                hideLoading()
             }
         }
     }
@@ -82,32 +81,20 @@ class MainActivity : AppCompatActivity() {
     private fun updateDetailUI(beersData: Data<List<Beer>>) {
         when (beersData.responseType) {
             Status.ERROR -> {
-                hideLoading()
                 beersData.error?.message?.let { showMessage(it) }
             }
             Status.LOADING -> {
-                showLoading()
             }
             Status.SUCCESSFUL -> {
                 startActivity(Intent(this, DetailActivity::class.java))
-                hideLoading()
             }
         }
     }
 
     private fun callStartService() {
-        showLoading()
         Handler(Looper.getMainLooper()).postDelayed({
             viewModel.onStartHome(1, 80)
         }, MINIMUM_LOADING_TIME)
-    }
-
-    private fun showLoading() {
-        beerAnimationLoader.visibility = View.VISIBLE
-    }
-
-    private fun hideLoading() {
-        beerAnimationLoader.visibility = View.GONE
     }
 
     private fun setBeerList(beerList: List<Beer>) {
