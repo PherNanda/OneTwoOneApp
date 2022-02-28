@@ -5,7 +5,7 @@ import com.android.app.onetwoone.domain.model.Beer
 import com.android.app.onetwoone.domain.repository.BeerRepository
 import com.android.app.onetwoone.domain.utils.Result
 
-class BeerRepositoryImplement(
+class BeerRepositoryImpl(
     private val beerService: BeerService
 ) : BeerRepository {
 
