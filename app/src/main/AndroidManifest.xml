@@ -14,14 +14,13 @@
         android:theme="@style/Theme.OneTwoOneApp"
         android:usesCleartextTraffic="true">
         <activity android:name="com.android.app.onetwoone.ui.view.DetailActivity"/>
-        <activity android:name="com.android.app.onetwoone.ui.view.SplashActivity">
+        <activity android:name="com.android.app.onetwoone.ui.view.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.android.app.onetwoone.ui.view.MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

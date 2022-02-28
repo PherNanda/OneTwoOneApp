@@ -2,7 +2,7 @@ package com.android.app.onetwoone.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.android.app.onetwoone.data.repository.BeerRepositoryImplement
+import com.android.app.onetwoone.data.repository.BeerRepositoryImpl
 import com.android.app.onetwoone.data.service.BeerService
 import com.android.app.onetwoone.domain.repository.BeerRepository
 import com.android.app.onetwoone.domain.useCases.GetBeerPage
@@ -15,7 +15,7 @@ import org.koin.dsl.module
 
 val repositoriesModule = module {
     single { BeerService() }
-    single<BeerRepository> { BeerRepositoryImplement(get()) }
+    single<BeerRepository> { BeerRepositoryImpl(get()) }
 }
 
 val viewModelModule = module {
